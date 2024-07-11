@@ -4,41 +4,55 @@ public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-        Arraylist myList = new Arraylist();
-
-        // Thêm các phần tử vào ArrayList
-        myList.add(5);
-        myList.add(10);
-        myList.add(15);
-
-        // In ra danh sách các phần tử trong ArrayList
-        System.out.println("Danh sách ban đầu:");
-        myList.Print();
-
-        // Cập nhật phần tử tại index 1
-        myList.Update(12, 1);
-        System.out.println("Danh sách sau khi cập nhật:");
-        myList.Print();
-
-        // Xóa phần tử tại index 0
-        myList.DeleteIndex(0);
-        System.out.println("Danh sách sau khi xóa index 0:");
-        myList.Print();
-
-        // Xóa tất cả các phần tử có giá trị là 12
-        myList.DeleteValue(12);
-        System.out.println("Danh sách sau khi xóa giá trị 12:");
-        myList.Print();
-
-        // Tìm kiếm các phần tử có giá trị là 15
-        Arraylist searchResult = myList.Search(15);
-        System.out.println("Kết quả tìm kiếm các phần tử có giá trị 15:");
+        Arraylist arrayList = new Arraylist();
+        
+        // Adding elements to the list
+        arrayList.addLast(10);
+        arrayList.addLast(20);
+        arrayList.addLast(30);
+        arrayList.addLast(40);
+        
+        System.out.println("Arraylist after adding elements at the end:");
+        arrayList.Print();
+        
+        // Adding element at the first position
+        arrayList.addFirt(5);
+        System.out.println("Arraylist after adding element at the first position:");
+        arrayList.Print();
+        
+        // Adding element at a specific index
+        arrayList.addIndex(2, 15);
+        System.out.println("Arraylist after adding element at index 2:");
+        arrayList.Print();
+        
+        // Updating an element
+        arrayList.Update(25, 3);
+        System.out.println("Arraylist after updating element at index 3:");
+        arrayList.Print();
+        
+        // Deleting an element by index
+        arrayList.DeleteIndex(2);
+        System.out.println("Arraylist after deleting element at index 2:");
+        arrayList.Print();
+        
+        // Deleting an element by value
+        arrayList.DeleteValue(40);
+        System.out.println("Arraylist after deleting element with value 40:");
+        arrayList.Print();
+        
+        // Searching for an element
+        Arraylist searchResult = arrayList.Search(10);
+        System.out.println("Search results for value 10:");
         searchResult.Print();
-
-        // Xóa tất cả các phần tử trong ArrayList
-        myList.DeleteAll();
-        System.out.println("Danh sách sau khi xóa tất cả các phần tử:");
-        myList.Print();
+        
+        // Printing the list in reverse order
+        System.out.println("Arraylist in reverse order:");
+        arrayList.PrintReverse();
+        
+        // Deleting all elements
+        arrayList.DeleteAll();
+        System.out.println("Arraylist after deleting all elements:");
+        arrayList.Print();
 
 
 	}
