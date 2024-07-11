@@ -12,7 +12,7 @@ public class Arraylist {
 		this.M = new int [this.Max];
 	}
 
-	public void add(int d) {
+	public void addLast(int d) {
 		this.start++;
 		if(this.start == this.Max) {
 			this.Max*=2;
@@ -27,6 +27,72 @@ public class Arraylist {
 			M[start]=d;
 		}
 	}
+	
+	public void addFirt(int d) {
+		this.start++;
+		if(this.start == this.Max) {
+			this.Max*=2;
+			int N[]=new int[this.Max];
+			for(int i=0;i<M.length;i++) {
+				N[i]=M[i];
+			}
+			this.M=N;
+			for(int i=start;i>0;i--){
+				M[i]=M[i-1];
+			}
+			
+		}
+		else {
+			for(int i=start;i>0;i--){
+				M[i]=M[i-1];
+			}
+			M[0]=d;
+		
+		}
+		
+		
+	}
+	
+	public void addIndex(int Index, int d) {
+		if(Index==0) {
+			addFirt(d);
+		}
+		else if (Index==Size()) {
+			addLast(d);
+		}
+		else {
+			this.start++;
+			if(this.start == this.Max) {
+				this.Max*=2;
+				int N[]=new int[this.Max];
+				for(int i=0;i<M.length;i++) {
+					N[i]=M[i];
+				}
+				this.M=N;
+				for(int i=start;i>0;i--){
+					if(i==Index) {
+						M[i]=d;
+						break;
+					}
+					else {
+						M[i]=M[i-1];
+					}
+				}
+			}
+			else {
+				for(int i=start;i>0;i--){
+					if(i==Index) {
+						M[i]=d;
+						break;
+					}
+					else {
+						M[i]=M[i-1];
+					}
+				}
+			}
+		}
+	}
+	
 	public void Update(int d, int Index) {
 		if(Index > Size() || Index <0) {
 			System.out.println(" Lỗi ");
@@ -80,7 +146,7 @@ public class Arraylist {
 		Arraylist ArraySearch =new Arraylist();
 		for(int i=0;i<Size();i++) {
 			if(M[i]==d) {
-				ArraySearch.add(i);
+				ArraySearch.addLast(d);
 			}
 		}
 		return ArraySearch;
@@ -99,10 +165,21 @@ public class Arraylist {
 			System.out.println(" Arraylist này rỗng ");
 		}
 		else {
-			for(int i=0;i<=this.start;i++) {
+			for(int i=0;i<Size();i++) {
 				System.out.println(M[i]);
 			}
 		}
 	}
+	public void PrintReverse() {
+		if(Size()==0) {
+			System.out.println(" Arraylist này rỗng ");
+		}
+		else {
+			for(int i=Size()-1;i>=0;i--) {
+				System.out.println(M[i]);
+			}
+		}
+	}
+	
 	
 }
